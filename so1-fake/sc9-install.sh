@@ -7,9 +7,16 @@ apt-get update
 apt -y --no-install-recommends install \
     isc-dhcp-server
 
-wget https://github.com/ci4rail/io4edge-client-go/releases/download/v1.8.0/io4edge-cli-v1.8.0-linux-amd64.tar.gz && \
-tar -C /usr/local/bin -xvf io4edge-cli-v1.8.0-linux-amd64.tar.gz io4edge-cli && \
-rm io4edge-cli-v1.8.0-linux-amd64.tar.gz
+HOST_ARCH=amd64
+IO4EDGE_CLIENT_GO_VERSION="v1.8.0"
+wget https://github.com/ci4rail/io4edge-client-go/releases/download/${IO4EDGE_CLIENT_GO_VERSION}/io4edge-cli-${IO4EDGE_CLI_VERSION}-linux-${HOST_ARCH}.tar.gz && \
+tar -C /usr/local/bin -xvf io4edge-cli-${IO4EDGE_CLIENT_GO_VERSION}-linux-${HOST_ARCH}.tar.gz io4edge-cli && \
+rm io4edge-cli-${IO4EDGE_CLIENT_GO_VERSION}-linux-${HOST_ARCH}.tar.gz
+
+wget https://github.com/ci4rail/io4edge-client-go/releases/download/${IO4EDGE_CLIENT_GO_VERSION}/binaryIoTypeA_blinky-${IO4EDGE_CLIENT_GO_VERSION}-linux-${HOST_ARCH}.tar.gz && \
+tar -C /usr/local/bin -xvf binaryIoTypeA_blinky-${IO4EDGE_CLIENT_GO_VERSION}-linux-${HOST_ARCH}.tar.gz binaryIoTypeA_blinky && \
+rm binaryIoTypeA_blinky-${IO4EDGE_CLIENT_GO_VERSION}-linux-${HOST_ARCH}.tar.gz
+
 
 # USB io4edge devices udev rules
 echo 'ACTION=="add", ATTRS{interface}=="TinyUSB Network", PROGRAM="/usr/bin/usb_io4edge_interface_name.sh %k", NAME="%c"' > /etc/udev/rules.d/99-usb-io4edge.rules
@@ -85,3 +92,7 @@ if [[ "\$2" == "up" ]]; then
 fi
 EOF
 chmod +x /etc/NetworkManager/dispatcher.d/10-dhcpd-restart
+
+netplan apply
+
+echo "Please reboot system"
