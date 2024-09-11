@@ -10,9 +10,14 @@ sudo apt install curl
 
 Then execute the following command to install the integration
 ```bash
-curl https://raw.githubusercontent.com/ci4rail/io4edge-ubuntu-integration/main/so1-fake/sc9-install.sh | sudo bash
+curl https://raw.githubusercontent.com/ci4rail/io4edge-ubuntu-integration/main/ekf-sc3/ubuntu-22.04/io4edgebase-install.sh | sudo bash
 ```
 
 Then reboot the system.
 
-After reboot, execute the test program to verify the installation
+After reboot:
+
+```
+io4edge-cli scan
+```
+And the connected io4edge devices should be listed.
