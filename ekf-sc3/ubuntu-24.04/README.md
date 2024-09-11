@@ -10,7 +10,7 @@ sudo apt install curl
 
 Then execute the following command to install the integration
 ```bash
-curl https://raw.githubusercontent.com/ci4rail/io4edge-ubuntu-integration/main/ekf-sc3/ubuntu-22.04/io4edgebase-install.sh | sudo bash
+curl https://raw.githubusercontent.com/ci4rail/io4edge-ubuntu-integration/main/ekf-sc3/ubuntu-24.04/io4edgebase-install.sh | sudo bash
 ```
 
 Then reboot the system.
