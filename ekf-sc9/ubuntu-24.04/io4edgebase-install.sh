@@ -40,13 +40,13 @@ USB_PORT=\$(echo \$USB_PATH | awk -F/ '{print\$(NF-3)}')
 case \$USB_PORT in
   # DB-ZIP 3rd slot from CPU
   3-7)
-    echo "io4edge-cpci-geo4"
+    echo "io4e-cpci4"
     ;;
   3-7.1)
-    echo "io4edge-cpci-geo4a"
+    echo "io4e-cpci4a"
     ;;
   3-7.2)
-    echo "io4edge-cpci-geo4b"
+    echo "io4e-cpci4b"
     ;;
 
   *)
@@ -62,13 +62,13 @@ network:
   version: 2
   renderer: NetworkManager
   ethernets:
-    io4edge-cpci-geo4:
+    io4e-cpci4:
       dhcp4: false
       addresses: [192.168.200.10/24]
-    io4edge-cpci-geo4a:
+    io4e-cpci4a:
       dhcp4: false
       addresses: [192.168.201.10/24]
-    io4edge-cpci-geo4b:
+    io4e-cpci4b:
       dhcp4: false
       addresses: [192.168.202.10/24]
 EOF
@@ -132,7 +132,7 @@ subnet 192.168.214.0 netmask 255.255.255.0 {
 EOF
 
 cat <<EOF > /etc/default/isc-dhcp-server
-INTERFACESv4="io4edge-cpci-geo4 io4edge-cpci-geo4a io4edge-cpci-geob"
+INTERFACESv4="io4e-cpci4 io4e-cpci4a io4e-cpcib"
 EOF
 
 cat <<EOF > /etc/NetworkManager/dispatcher.d/10-dhcpd-restart
