@@ -39,7 +39,15 @@ USB_PATH=\$(readlink /sys/class/net/\$1)
 USB_PORT=\$(echo \$USB_PATH | awk -F/ '{print\$(NF-3)}')
 
 case \$USB_PORT in
-  # DB-ZIP 3rd slot from CPU
+  3-6)
+    echo "io4e-cpci5"
+    ;;
+  3-6.1)
+    echo "io4e-cpci5a"
+    ;;
+  3-6.2)
+    echo "io4e-cpci5b"
+    ;;
   3-7)
     echo "io4e-cpci4"
     ;;
@@ -72,6 +80,15 @@ network:
     io4e-cpci4b:
       dhcp4: false
       addresses: [192.168.202.10/24]
+    io4e-cpci5:
+      dhcp4: false
+      addresses: [192.168.203.10/24]
+    io4e-cpci5a:
+      dhcp4: false
+      addresses: [192.168.204.10/24]
+    io4e-cpci5b:
+      dhcp4: false
+      addresses: [192.168.205.10/24]
 EOF
 chmod 600 /etc/netplan/10-io4edge.yaml
 
@@ -134,7 +151,7 @@ subnet 192.168.214.0 netmask 255.255.255.0 {
 EOF
 
 cat <<EOF > /etc/default/isc-dhcp-server
-INTERFACESv4="io4e-cpci4 io4e-cpci4a io4e-cpci4b"
+INTERFACESv4="io4e-cpci4 io4e-cpci4a io4e-cpci4b io4e-cpci5 io4e-cpci5a io4e-cpci5b"
 EOF
 
 cat <<EOF > /etc/NetworkManager/dispatcher.d/10-dhcpd-restart
