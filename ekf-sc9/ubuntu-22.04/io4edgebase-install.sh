@@ -6,7 +6,7 @@ set -x
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt -y --no-install-recommends install \
-    isc-dhcp-server network-manager
+    isc-dhcp-server network-manager avahi-daemon avahi-utils
 
 HOST_ARCH=amd64
 IO4EDGE_CLIENT_GO_VERSION="v1.8.0"
@@ -73,6 +73,7 @@ network:
       dhcp4: false
       addresses: [192.168.202.10/24]
 EOF
+chmod 660 /etc/netplan/10-io4edge.yaml
 
 cat <<EOF > /etc/dhcp/dhcpd.conf
 ddns-update-style none;
