@@ -6,7 +6,7 @@ set -x
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt -y --no-install-recommends install \
-    isc-dhcp-server
+    isc-dhcp-server network-manager
 
 HOST_ARCH=amd64
 IO4EDGE_CLIENT_GO_VERSION="v1.8.0"
