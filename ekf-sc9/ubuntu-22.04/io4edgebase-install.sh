@@ -73,7 +73,7 @@ network:
       dhcp4: false
       addresses: [192.168.202.10/24]
 EOF
-chmod 660 /etc/netplan/10-io4edge.yaml
+chmod 600 /etc/netplan/10-io4edge.yaml
 
 cat <<EOF > /etc/dhcp/dhcpd.conf
 ddns-update-style none;
@@ -134,7 +134,7 @@ subnet 192.168.214.0 netmask 255.255.255.0 {
 EOF
 
 cat <<EOF > /etc/default/isc-dhcp-server
-INTERFACESv4="io4e-cpci4 io4e-cpci4a io4e-cpcib"
+INTERFACESv4="io4e-cpci4 io4e-cpci4a io4e-cpci4b"
 EOF
 
 cat <<EOF > /etc/NetworkManager/dispatcher.d/10-dhcpd-restart
