@@ -48,13 +48,13 @@ case \$USB_PORT in
   3-6.2)
     echo "io4e-cpci5b"
     ;;
-  3-10)
+  3-3)
     echo "io4e-cpci8"
     ;;
-  3-10.1)
+  3-3-.1)
     echo "io4e-cpci8a"
     ;;
-  3-10.2)
+  3-3.2)
     echo "io4e-cpci8b"
     ;;
 
