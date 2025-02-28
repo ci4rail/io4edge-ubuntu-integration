@@ -51,7 +51,7 @@ case \$USB_PORT in
   3-3)
     echo "io4e-cpci8"
     ;;
-  3-3-.1)
+  3-3.1)
     echo "io4e-cpci8a"
     ;;
   3-3.2)
@@ -151,7 +151,7 @@ subnet 192.168.214.0 netmask 255.255.255.0 {
 EOF
 
 cat <<EOF > /etc/default/isc-dhcp-server
-INTERFACESv4="io4e-cpci4 io4e-cpci4a io4e-cpci4b io4e-cpci5 io4e-cpci5a io4e-cpci5b"
+INTERFACESv4="io4e-cpci5 io4e-cpci5a io4e-cpci5b io4e-cpci8 io4e-cpci8a io4e-cpci8b "
 EOF
 
 cat <<EOF > /etc/NetworkManager/dispatcher.d/10-dhcpd-restart
