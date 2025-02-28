@@ -48,14 +48,14 @@ case \$USB_PORT in
   3-6.2)
     echo "io4e-cpci5b"
     ;;
-  3-7)
-    echo "io4e-cpci4"
+  3-10)
+    echo "io4e-cpci8"
     ;;
-  3-7.1)
-    echo "io4e-cpci4a"
+  3-10.1)
+    echo "io4e-cpci8a"
     ;;
-  3-7.2)
-    echo "io4e-cpci4b"
+  3-10.2)
+    echo "io4e-cpci8b"
     ;;
 
   *)
@@ -71,15 +71,6 @@ network:
   version: 2
   renderer: NetworkManager
   ethernets:
-    io4e-cpci4:
-      dhcp4: false
-      addresses: [192.168.200.10/24]
-    io4e-cpci4a:
-      dhcp4: false
-      addresses: [192.168.201.10/24]
-    io4e-cpci4b:
-      dhcp4: false
-      addresses: [192.168.202.10/24]
     io4e-cpci5:
       dhcp4: false
       addresses: [192.168.203.10/24]
@@ -89,6 +80,15 @@ network:
     io4e-cpci5b:
       dhcp4: false
       addresses: [192.168.205.10/24]
+    io4e-cpci8:
+      dhcp4: false
+      addresses: [192.168.212.10/24]
+    io4e-cpci8a:
+      dhcp4: false
+      addresses: [192.168.213.10/24]
+    io4e-cpci8b:
+      dhcp4: false
+      addresses: [192.168.214.10/24]
 EOF
 chmod 600 /etc/netplan/10-io4edge.yaml
 
