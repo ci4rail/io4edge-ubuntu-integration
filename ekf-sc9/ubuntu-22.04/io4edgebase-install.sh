@@ -97,7 +97,7 @@ ddns-update-style none;
 
 # option definitions common to all supported networks... (not relevant for this snippet)
 option domain-name "example.org";
-option domain-name-servers ns1.example.org, ns2.example.org;
+option domain-name-servers 8.8.8.8;
 
 default-lease-time 600;
 max-lease-time 7200;
